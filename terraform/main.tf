@@ -17,7 +17,13 @@ resource "azurerm_cognitive_account" "ocr" {
   sku_name = "S0"
 }
 
+output "endpoint" {
+  description = "The endpoint for the cognitive account"
+  value       = azurerm_cognitive_account.ocr.endpoint
+}
+
 output "key" {
-  value     = azurerm_cognitive_account.ocr.primary_access_key
-  sensitive = true
+  description = "The API key for your cognitive account"
+  value       = azurerm_cognitive_account.ocr.primary_access_key
+  sensitive   = true
 }
